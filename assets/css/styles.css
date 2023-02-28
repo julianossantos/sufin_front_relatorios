@@ -22,7 +22,7 @@ body {
 }
 
 .sidebar {
-  background: #fff;
+  background: #005ca9;
 }
 
 .navbar .navbar-menu-wrapper {
@@ -698,5 +698,27 @@ body {
 }
 
 .wrapper {
-  min-height: 78vh;
+  min-height: 73vh;
+}
+
+.avatar {
+  color: #005ca9;
+  font-weight: 600;
+}
+
+img .avatar {
+  vertical-align: middle;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.title {
+  color: #005ca9;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.subtitle {
+  color: #005ca9;
 }

@@ -31,6 +31,10 @@ function troca_pagina(pagina) {
   });
 }
 
+function abrir_nova_pagina(pagina) {
+  window.open(pagina, "_blank");
+}
+
 $(window).on("load", function () {
   $('[data-toggle="popover"]').popover();
   $("#pagina_inicial").css("visibility", "visible");

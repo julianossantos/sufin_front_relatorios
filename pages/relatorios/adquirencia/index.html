@@ -1,24 +1,38 @@
 <div class="row" id="relatorio-azulzinha">
-    <div class="col-sm-12">
-        <div class="row" style="margin-top:12px;">
-            <div class="card-home">
-                <div class="form-floating col-sm-6">
-                    <select class="form-select" id="floatingSelect"
-                        aria-label=".form-select-sm Floating label select example">
-                        <option value="azulzinha-orcamento" selected>Orçamento</option>
-                        <option value="azulzinha-faturamento">Faturamento</option>
-                    </select>
-                    <label for="floatingSelect">Selecione o Relatório da Azulzinha</label>
+    <div style="margin-top:12px;">
+        <div class="card-home">
+            <div class="form-floating col-10">
+                <select class="form-select" id="floatingSelect"
+                    aria-label=".form-select-sm Floating label select example">
+                    <option value="azulzinha-orcamento" selected>Orçamento</option>
+                    <option value="azulzinha-faturamento">Faturamento</option>
+                </select>
+                <label for="floatingSelect">Selecione o Relatório da Azulzinha</label>
+            </div>
+            <div class="form-floating col">
+                <button class="btn btn-success" id="btnGerarRelatorioAdquirencia" type="button">
+                    <i class="mdi mdi-auto-fix"></i> Gerar Relatório
+                </button>
+            </div>
+            <div class="form-floating col-md-12 ms-auto" id="divRelatorioFiltroAdquirencia">
+                <div class="float-end">
+                    <button class="btn btn-outline-warning" id="btnRelatorioFiltroAdquirencia" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#filtroAdquirencia" aria-expanded="false"
+                        aria-controls="filtroAdquirencia">
+                        <i class="mdi mdi-filter"></i> Filtros
+                    </button>
                 </div>
-                <div class="form-floating">
-                    <select class="form-select" id="floatingSelect"
-                        aria-label=".form-select-sm Floating label select example">
-                        <option selected>Orçamento</option>
-                        <option value="1">Faturamento</option>
-                    </select>
-                    <label for="floatingSelect">Selecione o Relatório</label>
+                <div class="collapse" id="filtroAdquirencia">
+                    <div class="card card-body">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                checked>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Exibir todos os itens</label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="/app/relatorios/assets/js/adquirencia/relatorios.js"></script>

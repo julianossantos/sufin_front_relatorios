@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SUFIN - Finanças, Administração e Contabilidade</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/app/template/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/app/template/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="/app/assets/js/dataTables/dataTables.min.css">
+    <link rel="stylesheet" href="/app/assets/js/dataTables/fixedColumns.dataTables.min.css">
+
+    <link rel="stylesheet" href="/app/template/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="/app/template/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/template/css/vertical-layout-light/style.css">
+    <link rel="stylesheet" href="/app/relatorios/assets/css/styles.css">
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotify.min.css" />
+
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyBootstrap4.min.css" />
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyMobile.min.css" />
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyDesktop.min.css" />
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyConfirm.min.css" />
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyCountdown.min.css" />
+    <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyReference.min.css" />
+
+    <link rel="stylesheet" href="/app/assets/css/bootstrap/bootstrap.min.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/app/assets/img/favicon.ico" />
+
+</head>
+
+<body class="sidebar-icon-only">
+    <div class="container-scroller" id="pagina_inicial">
+        <!-- partial:partials/_navbar.html -->
+        <div include-html="/app/relatorios/pages/main/navbar.html"></div>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <div include-html="/app/relatorios/pages/main/sidebar.html"></div>
+            <input type="hidden" id="input_user_name" value="" />
+            <!-- partial -->
+            <div class="main-panel" style="margin-left:5%;margin-right: 1%;">
+                <div class="wrapper" style="margin-right: 1vh;">
+                    <div id="home"></div>
+                    <div id="others_pages"></div>
+                    <div id="div_loader"></div>
+                </div>
+                <footer class="footer">
+                    <hr class="text-muted" />
+                    <div class="d-sm-flex justify-content-sm-between">
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-8" style="text-align:right;justify-content: right;">
+                                <div class="row">
+                                    <div class="col-lg-10">
+                                        <span class="float d-block mt-sm-0"
+                                            style="font-weight: 900;font-size:30px;color:#005ca9;">SUFIN</span>
+                                        <span style="font-weight: 900;font-size:16px;color:#005ca9;">Finanças,
+                                            Administração e
+                                            Contabilidade</span>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <img style="width: 90%;"
+                                            src="/app/assets/img/logos_cch/caixa_cartoes_vol_vertical_positiva.png"
+                                            alt="Caixa Cartões" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+
+    <!-- plugins:js -->
+    <script src="/app/template/js/jquery-3.6.0.min.js"></script>
+    <script src="/app/template/vendors/select2/select2.min.js"></script>
+    <script src="/app/template/js/popover.js"></script>
+    <script src="/app/template/js/popper.min.js"></script>
+    <script src="/app/assets/js/highcharts/highcharts.js"></script>
+    <script src="/app/assets/js/highcharts/exporting.js"></script>
+    <script src="/app/assets/js/highcharts/export-data.js"></script>
+    <script src="/app/assets/js/highcharts/accessibility.js"></script>
+
+    <!--local js-->
+    <script src="/app/relatorios/assets/js/initial.js"></script>
+    <script src="/app/relatorios/assets/js/includeHTML.js"></script>
+    <script src="/app/relatorios/assets/js/common.js"></script>
+    <script src="/app/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/app/relatorios/assets/js/includeHTML.js"></script>
+
+    <script type="text/javascript">
+        includeHTML();
+        troca_pagina('/app/relatorios/pages/home/');
+    </script>
+</body>
+
+</html>

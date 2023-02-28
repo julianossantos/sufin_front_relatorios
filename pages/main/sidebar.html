@@ -1,11 +1,55 @@
-<div class="sidebar-fixed">
+<div class="sidebar-fixed" style="margin-left:-12px;">
     <nav class="sidebar sidebar-offcanvas sidebar-fixed" id="sidebar">
         <ul class="nav">
-            <li class="nav-item" onclick="troca_pagina('home');">
+            <li class="nav-item" onclick="troca_pagina('/app/relatorios/pages/home/');">
                 <span class="nav-link">
-                    <i class="mdi mdi-home menu-icon"></i>
-                    <span class="menu-title fw-bold">Home</span>
+                    <i class="mdi mdi-chart-bar menu-icon"></i>
+                    <span class="menu-title fw-bold" alt="Home">Home</span>
                 </span>
             </li>
+            <li class="nav-item" onclick="troca_pagina('/app/relatorios/pages/relatorios/');">
+                <span class="nav-link">
+                    <i class="mdi mdi-card-bulleted-outline menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">Relatórios Produtos</span>
+                </span>
+            </li>
+            <li class="nav-item" onclick="troca_pagina('/app/dashboard/index3.php');">
+                <span class="nav-link">
+                    <i class="mdi mdi-wallet menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">Controladoria</span>
+                </span>
+            </li>
+            <li class="nav-item" onclick="troca_pagina('/app/doc/index2.php')">
+                <span class="nav-link">
+                    <i class="mdi mdi-counter menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">Expedientes</span>
+                </span>
+            </li>
+            <li class="nav-item" onclick="troca_pagina('/app/relatorios/pages/informacoesOperacionais/');">
+                <span class="nav-link">
+                    <i class="mdi mdi-cash-register menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">Informações Operacionais</span>
+                </span>
+            </li>
+            <li class="nav-item" onclick="troca_pagina('/app/relatorios/pages/cartilhas/');">
+                <span class="nav-link">
+                    <i class="mdi mdi-file-multiple menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">Relatórios e Cartilhas</span>
+                </span>
+            </li>
+            <li class="nav-item"
+                onclick="abrir_nova_pagina('https://novobi.caixa/ReportsPBI/powerbi/Relat%C3%B3rios%20P%C3%BAblicos/8995%20%E2%80%93%20DICAR/GECON/SUPER%202022?rs:embed=true')">
+                <span class="nav-link">
+                    <i class="mdi mdi-all-inclusive menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">SUPER CCH</span>
+                </span>
+            </li>
+            <li class="nav-item" onclick="abrir_nova_pagina('/app/produtos')">
+                <span class="nav-link">
+                    <i class="mdi mdi-cards menu-icon"></i>
+                    <span class="menu-title fw-bold text-black">Pré-Pagos</span>
+                </span>
+            </li>
+        </ul>
     </nav>
 </div>

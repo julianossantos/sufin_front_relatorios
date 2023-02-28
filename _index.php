@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>SUFIN - Relatórios Gerenciais</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="/app/assets/js/dataTables/datatables.min.css">
-    <link rel="stylesheet" href="/app/template/vendors/feather/feather.css">
     <link rel="stylesheet" href="/app/template/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="/app/template/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="/app/template/vendors/typicons/typicons.css">
-    <link rel="stylesheet" href="/app/template/vendors/simple-line-icons/css/simple-line-icons.css">
     <link rel="stylesheet" href="/app/template/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
@@ -23,11 +18,8 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/app/template/css/vertical-layout-light/style.css">
-    <link rel="stylesheet" href="/app/template/css/slick.css">
-    <link rel="stylesheet" href="/app/template/css/slick-theme.css">
     <link rel="stylesheet" href="/app/relatorios/assets/css/styles.css">
     <link rel="stylesheet" href="/app/assets/css/pnotify/PNotify.min.css" />
-    <link rel="stylesheet" href="/app/assets/css/material/Material.min.css" />
 
     <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyBootstrap4.min.css" />
     <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyMobile.min.css" />
@@ -36,6 +28,7 @@
     <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyCountdown.min.css" />
     <link rel="stylesheet" href="/app/assets/css/pnotify/PNotifyReference.min.css" />
 
+    <link rel="stylesheet" href="/app/assets/css/bootstrap/bootstrap.min.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="/app/assets/img/favicon.ico" />
 
@@ -49,7 +42,7 @@
         <div class="container-fluid page-body-wrapper">
             <div include-html="/app/relatorios/pages/main/sidebar.html"></div>
             <!-- partial -->
-            <div class="main-panel" style="margin-left:4%;margin-right: 1%;">
+            <div class="main-panel" style="margin-left:5%;margin-right: 1%;">
                 <div class="wrapper" style="margin-right: 1vh;">
                     <div id="home">
                         <ul class="nav nav-pills">
@@ -62,10 +55,10 @@
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="relatorio-adquirencia" role="tabpanel" aria-labelledby="relatorio-adquirencia-tab" tabindex="0">
-                                <div include-html="/app/relatorios/pages/relatorios/adquirencia"></div>
+                                <!--div include-html="/app/relatorios/pages/relatorios/adquirencia"></!--div-->
                             </div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                                <div include-html="/app/relatorios/pages/relatorios/prepagos"></div>
+                            <div class="tab-pane fade" id="relatorio-prepagos" role="tabpanel" aria-labelledby="relatorio-prepagos-tab" tabindex="0">
+                                <!--div include-html="/app/relatorios/pages/relatorios/prepagos"></!div-->
                             </div>
                         </div>
                     </div>
@@ -88,52 +81,60 @@
                 </footer>
 
             </div>
-            <!-- partial -->
+        </div>
+    </div>
+    <!-- partial -->
 
-            <!-- plugins:js -->
-            <script src="/app/template/js/jquery-3.6.0.min.js"></script>
-            <script src="/app/template/vendors/js/vendor.bundle.base.js"></script>
-            <!-- endinject -->
-            <!-- Plugin js for this page -->
-            <script src="/app/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- plugins:js -->
+    <script src="/app/template/js/jquery-3.6.0.min.js"></script>
+    <script src="/app/template/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="/app/template/vendors/select2/select2.min.js"></script>
+    <script src="/app/template/js/popover.js"></script>
+    <script-- src="/app/template/js/popper.min.js"></script-->
 
-            <!-- End plugin js for this page -->
-            <!-- inject:js -->
-            <script src="/app/template/js/off-canvas.js"></script>
-            <script src="/app/template/js/hoverable-collapse.js"></script>
-            <script src="/app/template/js/template.js"></script>
-            <script src="/app/template/js/settings.js"></script>
-            <script src="/app/template/vendors/select2/select2.min.js"></script>
+    <!--local js-->
+    <script src="/app/relatorios/assets/js/initial.js"></script>
+    <script src="/app/relatorios/assets/js/includeHTML.js"></script>
+    <script src="/app/relatorios/assets/js/common.js"></script>
+    <script src="/app/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="/app/relatorios/assets/js/includeHTML.js"></script>
+    <script src="/app/relatorios/assets/js/adquirencia/relatorios.js"></script>
 
-            <!-- endinject -->
-            <!-- Custom js for this page-->
-            <script src="/app/produtos/template/js/jquery.cookie.js" type="text/javascript"></script>
-            <script src="/app/assets/js/dataTables/datatables.min.js"></script>
-            <script src="/app/assets/js/dataTables/dataTables.fixedColumns.min.js"></script>
-            <script src="/app/template/js/popover.js"></script>
-            <script src="/app/template/js/popper.min.js"></script>
-            <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
+    <script type="text/javascript">
+        includeHTML();
+    </script>
 
-            <script src="/app/assets/js/pnotify/PNotify.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyBootstrap4.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyFontAwesome5Fix.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyFontAwesome5.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyAnimate.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyConfirm.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyCountdown.min.js"></script>
-            <script src="/app/assets/js/pnotify/PNotifyReference.min.js"></script>
-            <script src="/app/assets/js/pnotify/functions.js"></script>
-            <script src="/app/assets/js/moment/moment.js"></script>
-            <script src="/app/assets/js/moment/moment-pt-br.js"></script>
+    <script type="text/javascript">
+        function troca_pagina(pagina) {
 
-            <!--local js-->
-            <script src="/app/relatorios/assets/js/includeHTML.js"></script>
-            <script src="/app/relatorios/assets/js/common.js"></script>
+            $('#others_pages').empty();
 
+            if (pagina == 'home') {
+                $('#others_pages').hide();
+                $('#home').show();
+                $('#div-select-unidade').hide();
+                //select-unidade').show();
+            } else if (pagina == '/app/produtos/prepagos/gestao_carteira.php' || pagina == '/app/produtos/prepagos/oportunidades.php' || pagina == '/app/produtos/prepagos/conquiste.php') {
+                $('#div-select-unidade').hide();
+                $('#home').hide();
+                $('#others_pages').show();
+            } else {
+                $('#home').hide();
+                $('#others_pages').show();
+                $('#div-select-unidade').show()
+            }
 
-            <script type="text/javascript">
-                includeHTML();
-            </script>
+            $.ajax({
+                url: "http://sufin.caixa" + pagina,
+                type: "POST",
+                cache: false,
+                data: {},
+                success: function(data) {
+                    $("#others_pages").html(data);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
