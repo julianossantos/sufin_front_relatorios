@@ -6,108 +6,80 @@
         <i class="mdi mdi-chevron-right"></i>Informações sobre as finanças, contabilidade e produtos da Caixa Cartões
     </div>
     <hr />
-    <span class="title"><i class="mdi mdi-credit-card"></i> Adquirencia</span>
-    <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Faturamento</h5>
-                    <figure class="highcharts-figure">
-                        <div id="faturamento_adquirencia_barchart"></div>
-                    </figure>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <button class="nav-link active" id="dash-adquirencia-tab" data-bs-toggle="pill" data-bs-target="#dash-adquirencia" type="button" role="tab" aria-controls="dash-adquirencia" aria-selected="true"><i class="mdi mdi-credit-card"></i> Adquirencia</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="dash-prepagos-tab" data-bs-toggle="pill" data-bs-target="#dash-prepagos" type="button" role="tab" aria-controls="dash-prepagos" aria-selected="false"><i class="mdi mdi-cards-outline"></i> Pré-Pagos</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="dash-conquiste-tab" data-bs-toggle="pill" data-bs-target="#dash-conquiste" type="button" role="tab" aria-controls="dash-conquiste" aria-selected="false"><i class="mdi mdi-trophy-outline"></i> Conquiste</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="dash-adquirencia" role="tabpanel" aria-labelledby="dash-adquirencia-tab" tabindex="0">
+            <div class="row">
+                <div class="col-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title text-center">Faturamento Acumulado 2023</h3>
+                            <div id="adquirencia-faturamento-acumulado-ano" class="text-primary h3 text-center"> R$ 3.024 BI</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Credenciamento Acumulado 2023</h5>
+                            <div id="adquirencia-credenciamento-acumulado-ano" class="text-primary h3 text-center"> 11.508</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Maquinas Ativadas Acumulado 2023 </h5>
+                            <div id="adquirencia-maquinas-ativadas-acumulado-ano" class="text-primary h3 text-center"> 9.327 </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Credenciamentos</h5>
-                    <div id="credenciamento_adquirencia_barchart"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Máquinas Ativas</h5>
-                    <div id="maquinas_ativas_adquirencia_barchart"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <span class="title"><i class="mdi mdi-cards-outline"></i> Pré-pagos</span>
-    <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Faturamento</h5>
-                    <div id="faturamento_prepagos_barchart"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Convênios Contratados</h5>
-                    <div id="convenios_prepagos_barchart"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Cartões Emitidos</h5>
-                    <div id="cartoes_prepagos_barchart"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <span class="title"><i class="mdi mdi-trophy-outline"></i> Conquiste</span>
-    <div class="row">
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Faturamento Credenciamento</h5>
-                    <div class="row">
-                        <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                    <h4 class="card-title card-title-dash text-center"><span class="text-info"><span id="adquirencia-conquiste-faturamento-objetivo-vired"></span></span> VIRED</h4>
-                                    <div>
-                                        <div id="workingFormats" class="progressbar-js-circle rounded p-3 cirle-bar-height-hr"><svg viewBox="0 0 100 100" style="stroke-linecap: round;">
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="#eee" stroke-width="8" fill-opacity="0"></path>
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="rgb(32,59,179)" stroke-width="10" fill-opacity="0" id="prepagos-conquiste-donut-cartoes-creditados"></path>
-                                            </svg>
-                                            <div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 1.875rem; font-weight: bold;">
-                                                <h6 class="text-center">Realizado <span class="text-info" id="prepagos-conquiste-pc-item">106%</span></h6>
-                                                <span id="prepagos-conquiste-vr-realizado">2.306.874.145,08</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <i class="mdi mdi-information menu-icon"> Percentual com relação ao esperado (<span class="text-info" id="prepagos-conquiste-vr-esperado">2.305.292.377</span>)</i>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Faturamento Mensal</h5>
+                            <div id="adquirencia-faturamento-mensal"></div>
+                            <div id="spinner-faturamento-adquirencia" class="text-center">
+                                <div class="spinner-border text-primary">
+                                    <span class="sr-only"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                    <h4 class="card-title card-title-dash text-center"><span class="text-info"><span id="adquirencia-conquiste-faturamento-objetivo-vinat"></span></span> VINAT</h4>
-                                    <div>
-                                        <div id="workingFormats" class="progressbar-js-circle rounded p-3 cirle-bar-height-hr"><svg viewBox="0 0 100 100" style="stroke-linecap: round;">
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="#eee" stroke-width="8" fill-opacity="0"></path>
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="rgb(32,59,179)" stroke-width="10" fill-opacity="0" id="prepagos-conquiste-donut-cartoes-creditados" style="stroke-dasharray: 420.783px, 282.783px; stroke-dashoffset: 297.948px;"></path>
-                                            </svg>
-                                            <div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 1.875rem; font-weight: bold;">
-                                                <h6 class="text-center">Realizado <span class="text-info" id="prepagos-conquiste-pc-item">48,89%</span></h6>
-                                                <span class="" id="prepagos-conquiste-vr-realizado">8.185.222,42</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Credenciamentos Contratados Mensal</h5>
+                            <div id="adquirencia-credenciamento-mensal"></div>
+                            <div id="spinner-credenciamento-adquirencia" class="text-center">
+                                <div class="spinner-border text-primary">
+                                    <span class="sr-only"></span>
                                 </div>
-                                <div>
-                                    <i class="mdi mdi-information menu-icon"> Percentual com relação ao esperado (<span class="text-info" id="prepagos-conquiste-vr-esperado">17.922.882</span>)</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Máquinas Ativas Mensal</h5>
+                            <div id="adquirencia-maquinas-ativas-mensal"></div>
+                            <div id="spinner-maquinas-ativas-adquirencia" class="text-center">
+                                <div class="spinner-border text-primary">
+                                    <span class="sr-only"></span>
                                 </div>
                             </div>
                         </div>
@@ -115,50 +87,154 @@
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Cartões Pré-Pagos CA/CR</h5>
-                    <div class="row">
-                        <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                    <h4 class="card-title card-title-dash text-center"><span class="text-info"><span id="adquirencia-conquiste-faturamento-objetivo-vired"></span></span> VIRED</h4>
-                                    <div>
-                                        <div id="workingFormats" class="progressbar-js-circle rounded p-3 cirle-bar-height-hr"><svg viewBox="0 0 100 100" style="stroke-linecap: round;">
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="#eee" stroke-width="8" fill-opacity="0"></path>
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="rgb(32,59,179)" stroke-width="10" fill-opacity="0" id="prepagos-conquiste-donut-cartoes-creditados" style="stroke-dasharray: 480.783px, 282.783px; stroke-dashoffset: 297.948px;"></path>
-                                            </svg>
-                                            <div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 1.875rem; font-weight: bold;">
-                                                <h6 class="text-center">Realizado <span class="text-info" id="prepagos-conquiste-pc-item">67,79%</span></h6>
-                                                <span id="prepagos-conquiste-vr-realizado">76.451</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <i class="mdi mdi-information menu-icon"> Percentual com relação ao esperado (<span class="text-info" id="prepagos-conquiste-vr-esperado">119.990</span>)</i>
+        <div class="tab-pane fade" id="dash-prepagos" role="tabpanel" aria-labelledby="dash-prepagos-tab" tabindex="0">
+            <div class="row">
+                <div class="col-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Faturamento Acumulado 2023</h5>
+                            <span id="prepagos-faturamento-acumulado-ano" class="position-absolute text-primary h2 float-end top-0 end-0 m-3"> R$ 537.08 MI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Convênios Acumulado 2023</h5>
+                            <span id="prepagos-convenios-acumulado-ano" class="position-absolute text-primary h2 float-end top-0 end-0 m-3"> 9.804</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 mb-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cartões Acumulado 2023 </h5>
+                            <span id="prepagos-cartoes-acumulado-ano" class="position-absolute text-primary h2 float-end top-0 end-0 m-3"> 20.817 </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Faturamento Mensal</h5>
+                            <div id="prepagos-cacr-faturamento-mensal"></div>
+                            <div id="spinner-faturamento-mensal-cacr-prepagos" class="text-center">
+                                <div class="spinner-border text-primary">
+                                    <span class="sr-only"></span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
-                            <div class="card card-rounded">
-                                <div class="card-body">
-                                    <h4 class="card-title card-title-dash text-center"><span class="text-info"><span id="adquirencia-conquiste-faturamento-objetivo-vinat"></span></span> VINAT</h4>
-                                    <div>
-                                        <div id="workingFormats" class="progressbar-js-circle rounded p-3 cirle-bar-height-hr"><svg viewBox="0 0 100 100" style="stroke-linecap: round;">
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="#eee" stroke-width="8" fill-opacity="0"></path>
-                                                <path d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" stroke="rgb(32,59,179)" stroke-width="10" fill-opacity="0" id="prepagos-conquiste-donut-cartoes-creditados" style="stroke-dasharray: 420.783px, 282.783px; stroke-dashoffset: 297.948px;"></path>
-                                            </svg>
-                                            <div class="progressbar-text" style="position: absolute; left: 50%; top: 50%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: rgb(0, 0, 0); font-size: 1.875rem; font-weight: bold;">
-                                                <h6 class="text-center">Realizado <span class="text-info" id="prepagos-conquiste-pc-item">47,09%</span></h6>
-                                                <span id="prepagos-conquiste-vr-realizado">16.872</span>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Convênios Contratados Mensal</h5>
+                            <div id="prepagos-cacr-convenio-mensal"></div>
+                            <div id="spinner-convenio-mensal-cacr-prepagos" class="text-center">
+                                <div class="spinner-border text-primary">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cartões Emitidos Mensal</h5>
+                            <div id="prepagos-cacr-cartao-mensal"></div>
+                            <div id="spinner-cartao-mensal-cacr-prepagos" class="text-center">
+                                <div class="spinner-border text-primary">
+                                    <span class="sr-only"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="dash-conquiste" role="tabpanel" aria-labelledby="dash-consquiste-tab" tabindex="0">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">VIRED</h5>
+                            <div class="row">
+                                <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
+                                    <div class="card card-rounded">
+                                        <div class="card-body">
+                                            <div id="conquiste-adquirencia-faturamento-vired"></div>
+                                            <div>
+                                                <i class="mdi mdi-information menu-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Faturamento realizado até o momento"> Realizado: <span class="text-info" id="conquiste-adquirencia-faturamento-realizado-vired">0 MI</span></i><br>
+                                                <i class="mdi mdi-information menu-icon">Objetivo: <span class="text-info" id="conquiste-adquirencia-faturamento-objetivo-vired"> 0 MI</span></i>
+                                            </div>
+                                            <div id="spinner-conquiste-adquirencia-faturamento-vired" class="text-center">
+                                                <div class="spinner-border text-primary">
+                                                    <span class="sr-only"></span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
-                                    <i class="mdi mdi-information menu-icon"> Percentual com relação ao esperado (<span class="text-info" id="prepagos-conquiste-vr-esperado">38.382</span>)</i>
+                                <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
+                                    <div class="card card-rounded">
+                                        <div class="card-body">
+                                            <div id="conquiste-prepagos-cacr-vired"></div>
+                                            <div>
+                                                <i class="mdi mdi-information menu-icon"> Realizado: <span class="text-info" id="conquiste-prepagos-cacr-realizado-vired"> 0 Mil</span></i><br>
+                                                <i class="mdi mdi-information menu-icon"> Objetivo: <span class="text-info" id="conquiste-prepagos-cacr-objetivo-vired"> 0 Mil</span></i>
+                                            </div>
+                                            <div id="spinner-conquiste-prepagos-cacr-vired" class="text-center">
+                                                <div class="spinner-border text-primary">
+                                                    <span class="sr-only"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">VINAT</h5>
+                            <div class="row">
+                                <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
+                                    <div class="card card-rounded">
+                                        <div class="card-body">
+                                            <div id="conquiste-adquirencia-faturamento-vinat"></div>
+                                            <div>
+                                                <i class="mdi mdi-information menu-icon"> Realizado: <span class="text-info" id="conquiste-adquirencia-faturamento-realizado-vinat"> 0 MI</span></i><br>
+                                                <i class="mdi mdi-information menu-icon">Objetivo: <span class="text-info" id="conquiste-adquirencia-faturamento-objetivo-vinat"> 0 MI</span></i>
+                                            </div>
+                                            <div id="spinner-conquiste-adquirencia-faturamento-vinat" class="text-center">
+                                                <div class="spinner-border text-primary">
+                                                    <span class="sr-only"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 d-flex flex-column grid-margin stretch-card">
+                                    <div class="card card-rounded">
+                                        <div class="card-body">
+                                            <div id="conquiste-prepagos-cartoes-vinat"></div>
+                                            <div>
+                                                <i class="mdi mdi-information menu-icon" data-bs-toggle="tooltip" data-bs-title="valor realizado acumulado do ciclo"> Realizado: <span class="text-info" id="conquiste-prepagos-cacr-realizado-vinat"> 0 Mil</span></i><br>
+                                                <i class="mdi mdi-information menu-icon"> Objetivo: <span class="text-info" id="conquiste-prepagos-cacr-objetivo-vinat"> 0 Mil</span></i>
+                                            </div>
+                                            <div id="spinner-conquiste-prepagos-cacr-vinat" class="text-center">
+                                                <div class="spinner-border text-primary">
+                                                    <span class="sr-only"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -167,6 +243,9 @@
             </div>
         </div>
     </div>
-</div>
-<script src="/app/relatorios/assets/js/home/charts_home_adquirencia.js"></script>
-<script src="/app/relatorios/assets/js/home/charts_home_prepagos.js"></script>
+    <script type="text/javascript">
+        includeHTML();
+    </script>
+    <script src="/app/relatorios/assets/js/home/charts_home_adquirencia.js"></script>
+    <script src="/app/relatorios/assets/js/home/charts_home_prepagos.js"></script>
+    <script src="/app/relatorios/assets/js/home/charts_home_conquiste.js"></script>

@@ -4,20 +4,9 @@ function troca_pagina(pagina) {
   if (pagina == "home") {
     $("#others_pages").hide();
     $("#home").show();
-    $("#div-select-unidade").hide();
-    //select-unidade').show();
-  } else if (
-    pagina == "/app/prepagos/gestao_carteira.php" ||
-    pagina == "/app/prepagos/oportunidades.php" ||
-    pagina == "/app/prepagos/conquiste.php"
-  ) {
-    $("#div-select-unidade").hide();
-    $("#home").hide();
-    $("#others_pages").show();
   } else {
     $("#home").hide();
     $("#others_pages").show();
-    $("#div-select-unidade").show();
   }
 
   $.ajax({

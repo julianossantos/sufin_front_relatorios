@@ -722,3 +722,28 @@ img .avatar {
 .subtitle {
   color: #005ca9;
 }
+
+.btn-orange{
+  background-color: orangered;
+  color: #fff;
+}
+
+.btn-orange:hover{
+  color: orangered;
+  background-color: #fff;
+  border-color: orangered;
+}
+
+.btn-outline-orange{
+  background-color: #fff;
+  color: #DC7633;
+  border-color:#DC7633
+}
+
+.btn-outline-orange:hover{
+  color: #fff;
+  background-color: #DC7633;
+  border-color: fff;
+}
+
+

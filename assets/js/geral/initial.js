@@ -1,30 +1,8 @@
 $(document).ready(function () {
-  //adquirencia
-  /*$.ajax({
-    url: "http://sufin.caixa/app/relatorios/pages/relatorios/adquirencia",
-    type: "get",
-    cache: false,
-    data: {},
-    success: function (data) {
-      $("#relatorio-adquirencia").html(data);
-    },
-  });
-  //prepagos
   $.ajax({
-    url: "http://sufin.caixa/app/relatorios/pages/relatorios/prepagos",
-    type: "get",
-    cache: false,
-    data: {},
-    success: function (data) {
-      $("#relatorio-prepagos").html(data);
-    },
-  });*/
-
-  $.ajax({
-    url: "http://sufin.caixa/api-dash/dados-empregado/dados-gerais",
+    url: "http://sufin.caixa/api-sufin/dados-empregado/dados-gerais",
     type: "GET",
     cache: true,
-    data: {},
     success: function (data) {
       $("#user_photo")
         .empty()

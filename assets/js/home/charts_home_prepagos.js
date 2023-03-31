@@ -1,173 +1,355 @@
 /******** Grafico de faturamento
  * *****************************/
-Highcharts.chart("faturamento_prepagos_barchart", {
-  chart: {
-    type: "column",
+var dados_faturamento_cacr_mensal = [];
+var series_faturamento_cacr_mensal = [];
+
+$.ajax({
+  url: "http://sufin.caixa/api-sufin/prepagos/cacr/faturamento/mensal/12",
+  type: "GET",
+  cache: true,
+  data: {},
+  beforeSend: function (xhr) {
+    $("#spinner-faturamento-mensal-cacr-prepagos").show();
   },
-  title: {
-    text: "",
+  success: function (data) {
+    $.each(data, function (index, item) {
+      dados_faturamento_cacr_mensal.push({
+        name: item.SG_MES_FATURAMENTO,
+        y: item.VR_FATURAMENTO / 1000000,
+        drilldown: item.SG_MES_FATURAMENTO,
+      });
+    });
+    $.ajax({
+      url: "http://sufin.caixa/api-sufin/prepagos/cacr/faturamento/diario-12-meses",
+      type: "GET",
+      cache: true,
+      data: {},
+      success: function (data) {
+        $.each(data, function (index, item) {
+          data_value_cacr = [];
+          $.each(item.data, function (index, item) {
+            data_value_cacr.push([item[0].toString(), parseFloat(item[1])]);
+          });
+          series_faturamento_cacr_mensal.push({
+            name: index,
+            id: index,
+            data: data_value_cacr,
+            dataLabels: {
+              style: {
+                fontSize: "8px",
+              },
+            },
+          });
+        });
+      },
+      complete: function () {
+        $("#spinner-faturamento-mensal-cacr-prepagos").hide();
+        Highcharts.chart("prepagos-cacr-faturamento-mensal", {
+          chart: {
+            type: "column",
+          },
+          title: {
+            text: "",
+          },
+          subtitle: {
+            align: "left",
+            text: "Click na coluna para verificar o faturamento/dia",
+          },
+          accessibility: {
+            announceNewData: {
+              enabled: true,
+            },
+          },
+          xAxis: {
+            type: "category",
+          },
+          yAxis: {
+            title: {
+              text: "Faturamento Milhões (R$)",
+            },
+          },
+          legend: {
+            enabled: false,
+          },
+          plotOptions: {
+            series: {
+              borderWidth: 0,
+              dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: "#FFFFFF",
+                align: "right",
+                format: "{point.y:.1f}", // one decimal
+                y: 30, // 10 pixels down from the top
+                style: {
+                  fontSize: "10px",
+                },
+              },
+            },
+          },
+
+          tooltip: {
+            headerFormat:
+              '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat:
+              '<span style="color:{point.color}">{point.name}</span>: <b>R$ {point.y:.2f}</b><br/>',
+          },
+
+          series: [
+            {
+              name: "Faturamento Mensal",
+              colorByPoint: true,
+              data: dados_faturamento_cacr_mensal,
+            },
+          ],
+          drilldown: {
+            breadcrumbs: {
+              position: {
+                align: "right",
+              },
+            },
+            series: series_faturamento_cacr_mensal,
+          },
+        });
+      },
+    });
   },
-  xAxis: {
-    categories: [
-      "Jan",
-      "Fev",
-      "Mar",
-      "Abr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Set",
-      "Out",
-      "Nov",
-      "Dez",
-    ],
-    crosshair: true,
-  },
-  yAxis: {
-    min: 0,
-    title: {
-      text: "Milhões (R$)",
-    },
-  },
-  tooltip: {
-    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-    pointFormat:
-      '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-      '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-    footerFormat: "</table>",
-    shared: true,
-    useHTML: true,
-  },
-  plotOptions: {
-    column: {
-      pointPadding: 0.2,
-      borderWidth: 0,
-    },
-  },
-  series: [
-    {
-      name: "Faturamento",
-      data: [
-        49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1,
-        95.6, 54.4,
-      ],
-    },
-  ],
 });
 
-/******** Grafico de Credenciamentos
+/******** Grafico de Convenios ****
  * *****************************/
-Highcharts.chart("convenios_prepagos_barchart", {
-  chart: {
-    type: "column",
+
+var dados_convenio_cacr_mensal = [];
+var series_convenio_cacr_mensal = [];
+
+$.ajax({
+  url: "http://sufin.caixa/api-sufin/prepagos/cacr/convenio/mensal/12",
+  type: "GET",
+  cache: true,
+  data: {},
+  beforeSend: function (xhr) {
+    $("#spinner-convenio-mensal-cacr-prepagos").show();
   },
-  title: {
-    text: "",
+  success: function (data) {
+    $.each(data, function (index, item) {
+      dados_convenio_cacr_mensal.push({
+        name: item.SG_MES_CONVENIO,
+        y: item.QT_CONVENIOS_MES,
+        drilldown: item.SG_MES_CONVENIO,
+      });
+    });
+    $.ajax({
+      url: "http://sufin.caixa/api-sufin/prepagos/cacr/convenio/diario-12-meses",
+      type: "GET",
+      cache: true,
+      data: {},
+      success: function (data) {
+        $.each(data, function (index, item) {
+          data_value_cacr = [];
+          $.each(item.data, function (index, item) {
+            data_value_cacr.push([item[0].toString(), parseFloat(item[1])]);
+          });
+          series_convenio_cacr_mensal.push({
+            name: index,
+            id: index,
+            data: data_value_cacr,
+            dataLabels: {
+              style: {
+                fontSize: "8px",
+              },
+            },
+          });
+        });
+      },
+      complete: function () {
+        $("#spinner-convenio-mensal-cacr-prepagos").hide();
+        Highcharts.chart("prepagos-cacr-convenio-mensal", {
+          chart: {
+            type: "column",
+          },
+          title: {
+            text: "",
+          },
+          subtitle: {
+            align: "left",
+            text: "Click na coluna para verificar o faturamento/dia",
+          },
+          accessibility: {
+            announceNewData: {
+              enabled: true,
+            },
+          },
+          xAxis: {
+            type: "category",
+          },
+          yAxis: {
+            title: {
+              text: "Convênios (Mil)",
+            },
+          },
+          legend: {
+            enabled: false,
+          },
+          plotOptions: {
+            series: {
+              borderWidth: 0,
+              dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: "#FFFFFF",
+                align: "right",
+                format: "{point.y:.0f}", // one decimal
+                y: 30, // 10 pixels down from the top
+                style: {
+                  fontSize: "10px",
+                },
+              },
+            },
+          },
+
+          tooltip: {
+            headerFormat:
+              '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat:
+              '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>',
+          },
+
+          series: [
+            {
+              name: "Faturamento Mensal",
+              colorByPoint: true,
+              data: dados_convenio_cacr_mensal,
+            },
+          ],
+          drilldown: {
+            breadcrumbs: {
+              position: {
+                align: "right",
+              },
+            },
+            series: series_convenio_cacr_mensal,
+          },
+        });
+      },
+    });
   },
-  xAxis: {
-    categories: [
-      "Jan",
-      "Fev",
-      "Mar",
-      "Abr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Set",
-      "Out",
-      "Nov",
-      "Dez",
-    ],
-    crosshair: true,
-  },
-  yAxis: {
-    min: 0,
-    title: {
-      text: "Mil",
-    },
-  },
-  tooltip: {
-    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-    pointFormat:
-      '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-      '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-    footerFormat: "</table>",
-    shared: true,
-    useHTML: true,
-  },
-  plotOptions: {
-    column: {
-      pointPadding: 0.2,
-      borderWidth: 0,
-    },
-  },
-  series: [
-    {
-      name: "Convênios",
-      data: [
-        49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1,
-        95.6, 54.4,
-      ],
-    },
-  ],
 });
 
 /******** Grafico de cartões
  * *****************************/
-Highcharts.chart("cartoes_prepagos_barchart", {
-  chart: {
-    type: "column",
+
+var dados_cartao_cacr_mensal = [];
+var series_cartao_cacr_mensal = [];
+
+$.ajax({
+  url: "http://sufin.caixa/api-sufin/prepagos/cacr/cartao/mensal/12",
+  type: "GET",
+  cache: true,
+  data: {},
+  beforeSend: function (xhr) {
+    $("#spinner-cartao-mensal-cacr-prepagos").show();
   },
-  title: {
-    text: "",
+  success: function (data) {
+    $.each(data, function (index, item) {
+      dados_cartao_cacr_mensal.push({
+        name: item.SG_MES_CARTAO,
+        y: item.QT_CARTOES_NOVOS,
+        drilldown: item.SG_MES_CARTAO,
+      });
+    });
+    $.ajax({
+      url: "http://sufin.caixa/api-sufin/prepagos/cacr/cartao/diario-12-meses",
+      type: "GET",
+      cache: true,
+      data: {},
+      success: function (data) {
+        $.each(data, function (index, item) {
+          data_value_cacr = [];
+          $.each(item.data, function (index, item) {
+            data_value_cacr.push([item[0].toString(), parseFloat(item[1])]);
+          });
+          series_cartao_cacr_mensal.push({
+            name: index,
+            id: index,
+            data: data_value_cacr,
+            dataLabels: {
+              style: {
+                fontSize: "8px",
+              },
+            },
+          });
+        });
+      },
+      complete: function () {
+        $("#spinner-cartao-mensal-cacr-prepagos").hide();
+        Highcharts.chart("prepagos-cacr-cartao-mensal", {
+          chart: {
+            type: "column",
+          },
+          title: {
+            text: "",
+          },
+          subtitle: {
+            align: "left",
+            text: "Click na coluna para verificar o faturamento/dia",
+          },
+          accessibility: {
+            announceNewData: {
+              enabled: true,
+            },
+          },
+          xAxis: {
+            type: "category",
+          },
+          yAxis: {
+            title: {
+              text: "Convênios (Mil)",
+            },
+          },
+          legend: {
+            enabled: false,
+          },
+          plotOptions: {
+            series: {
+              borderWidth: 0,
+              dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: "#FFFFFF",
+                align: "right",
+                format: "{point.y:.0f}", // one decimal
+                y: 30, // 10 pixels down from the top
+                style: {
+                  fontSize: "10px",
+                },
+              },
+            },
+          },
+
+          tooltip: {
+            headerFormat:
+              '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat:
+              '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b><br/>',
+          },
+
+          series: [
+            {
+              name: "Faturamento Mensal",
+              colorByPoint: true,
+              data: dados_cartao_cacr_mensal,
+            },
+          ],
+          drilldown: {
+            breadcrumbs: {
+              position: {
+                align: "right",
+              },
+            },
+            series: series_cartao_cacr_mensal,
+          },
+        });
+      },
+    });
   },
-  xAxis: {
-    categories: [
-      "Jan",
-      "Fev",
-      "Mar",
-      "Abr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Set",
-      "Out",
-      "Nov",
-      "Dez",
-    ],
-    crosshair: true,
-  },
-  yAxis: {
-    min: 0,
-    title: {
-      text: "Mil",
-    },
-  },
-  tooltip: {
-    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-    pointFormat:
-      '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-      '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-    footerFormat: "</table>",
-    shared: true,
-    useHTML: true,
-  },
-  plotOptions: {
-    column: {
-      pointPadding: 0.2,
-      borderWidth: 0,
-    },
-  },
-  series: [
-    {
-      name: "Cartões",
-      data: [
-        49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1,
-        95.6, 54.4,
-      ],
-    },
-  ],
 });
