@@ -30,3 +30,30 @@ function formatarBordaValidacaoCampo(dataValida, campo, cor = "#c9c9c9") {
 
   return true;
 }
+
+function limparCamposForm() {
+  const formFields = document.querySelectorAll(
+    "form input, form select, form textarea"
+  );
+
+  // Loop through each field and set its value to an empty string
+  formFields.forEach((field) => {
+    field.value = "";
+  });
+}
+
+function inserirSpinnerEmBotaoByClass(classname = null){
+  const botao = document.querySelector(`button.${classname}`);
+  const div = document.createElement("div");
+
+  div.innerHTML = "<div class='text-center'><div class='spinner-border text-primary'><span class='sr-only'></span></div></div>";
+  botao.appendChild(div);
+  botao.disabled = true;
+}
+
+function removerSpinnerEmBotaoByClass(classname = null) {
+  const botao = document.querySelector(`button.${classname} div`);
+
+  botao.remove(botao);
+  botao.disabled = false;
+}

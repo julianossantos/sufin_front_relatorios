@@ -1,10 +1,10 @@
 <link href="/app/rel_e_cart/css/font-awesome.min.css" rel="stylesheet" />
 <script src="/app/rel_e_cart/js/jquery-2.1.3.min.js"></script>
 <link href="/app/rel_e_cart/jquery-ui-1.11.2.custom/jquery-ui.structure.min.css" rel="stylesheet" />
-<script src="/app/rel_e_cart/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
-<script src="/app/rel_e_cart/js/jquery.dataTables.min.js"></script>
-<script src="/app/rel_e_cart/js/jquery.maskMoney.js" type="text/javascript"></script>
-<script type="text/javascript" src="/app/rel_e_cart/js/jquery.maskedinput.min.js"></script>
+<script src="/app/rel_e_cart/jquery-ui-1.11.2.custom/jquery-ui.min.js""></script>
+<script type=" text/javascript"src="/app/rel_e_cart/js/jquery.dataTables.min.js"></script>
+<script type="text/javascriptt" src="/app/rel_e_cart/js/jquery.maskMoney.js"></script>
+<script src="/app/rel_e_cart/js/jquery.maskedinput.min.js"></script>
 <link href="/app/rel_e_cart/css/metrodatatables.css" rel="stylesheet">
 <script src="/app/rel_e_cart/sweetalert/sweetalert.min.js"></script>
 <link rel="stylesheet" type="text/css" href="/app/rel_e_cart/sweetalert/sweetalert.css">

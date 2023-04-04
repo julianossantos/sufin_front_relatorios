@@ -9,83 +9,78 @@
  * @author Juliano <C085111>
  ***************************************************/
 
+const ano = new Date().getFullYear();
+document.querySelector(".numerodoc").value = 1 + ano + 9999;
+
+const selectFiltroTipoConta = document.querySelector('#tipoDocumentoDisponibilidade');
+
+selectFiltroTipoConta.addEventListener('change', (e) => {
+  montarTabela("/app/disponibilidades/tableservice.php?tipo=" +e.target.value);
+});
+
 const btncadDemDisponibilidade = document.getElementById(
   "btnCadDemDisponibilidade"
 );
-const selTipoConta = document.getElementById("tipoContaDisponibilidades");
+const selectTipoConta = document.getElementById("tipoContaDisponibilidades");
 
 btncadDemDisponibilidade.onclick = (e) => {
   e.preventDefault();
 
-  selTipoConta.value = "";
-  showHiddenContentById("none", "divFormDisponibilidades");
-  showHiddenContentById("block", "imgDocDisponibilidades");
+  limparCamposForm();
+  //selectTipoConta.value = "";
+  showHiddenContentById("none", "divFormDisponibilidades"); //script geral/trabalhaDomElementsHtml
+  showHiddenContentById("block", "imgDocDisponibilidades"); //script geral/trabalhaDomElementsHtml
 };
 
 const userNameLogged = document.querySelector("span#user_name");
 const tipoDisponibilidade = ["CP", "PA", "FI", "PP", "BB"];
-selTipoConta.onchange = (e) => {
+selectTipoConta.onchange = (e) => {
   e.preventDefault();
 
-  showHiddenContentById("none", "imgDocDisponibilidades");
-  showHiddenContentById("block", "divFormDisponibilidades");
-  setNomeUsuario(".responsavelDisponibilidades", userNameLogged.innerText);
-  showHiddenContentByClass("block", "btnCad");
-  showHiddenContentByClass("none", "btnAlt");
+  showHiddenContentById("none", "imgDocDisponibilidades"); //script geral/trabalhaDomElementsHtml
+  showHiddenContentById("block", "divFormDisponibilidades"); //script geral/trabalhaDomElementsHtml
+  setNomeUsuario(".responsavelDisponibilidades", userNameLogged.innerText); //script formataVisualizacaoCampoFormulario
+  showHiddenContentByClass("block", "btnCad"); //script geral/trabalhaDomElementsHtml
+  showHiddenContentByClass("none", "btnAlt"); //script geral/trabalhaDomElementsHtml
   showHiddenField();
 };
 
 function showHiddenField() {
   tipoDisponibilidade.map((value) => {
-    if (value !== selTipoConta.value) {
+    if (value !== selectTipoConta.value) {
       showHiddenContentById(
         "none",
         "divSelectConta" + value + "Disponibilidades"
-      );
+      ); //script trabalhaDomElementsHtml
     } else {
       showHiddenContentById(
         "block",
         "divSelectConta" + value + "Disponibilidades"
-      );
+      ); //script trabalhaDomElementsHtml
     }
   });
 }
 
 const filtroData = document.getElementById("#dataFiltroDisponibilidades");
-montarTabelaDataTable(
-  "tablesDisponibilidades",
-  "/app/disponibilidades/tableservice.php?datafiltro=" + filtroData,
-  [
-    { data: "ordem" },
-    { data: "fato_operacional", width: "50px" },
-    { data: "detalhedoc" },
-    { data: "valorpago" },
-    { data: "dtpgto" },
-    { data: "botao" },
-  ]
-);
+montarTabela("/app/disponibilidades/tableservice.php?datafiltro=" + filtroData);
 
-let inputDataBalancete = document.querySelector("input.tipoDataBalancete");
-formatarData(inputDataBalancete);
-
-inputDataBalancete.addEventListener("focusout", (e) => {
-  if (
-    !formatarBordaValidacaoCampo(
-      moment(e.target.value, "DD/MM/YYYY", true).isValid(),
-      inputDataBalancete
-    )
-  ) {
-    showStackBarTop(
-      "error",
-      "Erro de validação de campo",
-      "Data Inválida. Favor digitar uma data válida no campo",
-      true
-    );
-  }
-});
+function montarTabela(url) {
+  montarTabelaDataTables(
+    "tablesDisponibilidades",
+    url,
+    [
+      { data: "ordem" },
+      { data: "fato_operacional", width: "50px" },
+      { data: "detalhedoc" },
+      { data: "valorpago" },
+      { data: "dtpgto" },
+      { data: "botao" },
+    ]
+  ); //script ../montarDataTables
+}
 
 let inputDataPgto = document.querySelector("input.tipoDataPgto");
-formatarData(inputDataPgto);
+formatarData(inputDataPgto); //script formataVisualizacaoCampoFormulario
 
 inputDataPgto.addEventListener("focusout", (e) => {
   let validarData = moment(e.target.value, "DD/MM/YYYY", true).isValid();
@@ -100,37 +95,37 @@ inputDataPgto.addEventListener("focusout", (e) => {
 });
 
 let inputValorComDecimal = document.querySelector("input.valorDecimal");
-formatarValorDecimal(inputValorComDecimal);
+formatarValorDecimal(inputValorComDecimal); //script formataVisualizacaoCampoFormulario
 
-$("#unidadeDestinoDisponibilidades").autocomplete({
+$(".unidade").autocomplete({
   source: "/app/disponibilidades/autocomplete.php",
 });
 
 let btnConsultarDadosModal = document.querySelector("#tablesDisponibilidades");
 
+/**** Visualiza os dados do registro na modal */
 if (btnConsultarDadosModal) {
   btnConsultarDadosModal.addEventListener("click", (e) => {
     const buttonConsulta = e.target.closest("td > button.btnConsultaDN");
     if (buttonConsulta) {
+      showHiddenContentById("block", "divFormDisponibilidades");
       const tr = buttonConsulta.closest("tr").childNodes;
-      /*tr.forEach(function (currentValue, currentIndex) {
-        console.log(`${currentValue.innerText}, ${currentIndex}`);
-      });*/
+      document.querySelector(".ordem").value = tr[0].innerText;
       fetch(`/app/disponibilidades/tableservice.php?nuOrdem=${tr[0].innerText}`)
         .then((response) => response.json())
         .then((data) => {
-          showHiddenContentByClass("none", "btnCad");
-          showHiddenContentByClass("block", "btnAlt");
+          showHiddenContentByClass("none", "btnCad"); //script trabalhaDomElementsHtml
+          showHiddenContentByClass("block", "btnAlt"); //script trabalhaDomElementsHtml
           setDadosFormularioModal(data);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err)); //script geral/fetch
     }
   });
 }
 
 function setDadosFormularioModal(data) {
-  showHiddenContentById("none", "imgDocDisponibilidades");
-  selTipoConta.value = data.data[0]["tipoconta"];
+  showHiddenContentById("none", "imgDocDisponibilidades"); //script trabalhaDomElementsHtml
+  selectTipoConta.value = data.data[0]["tipoconta"];
   showHiddenField();
   const selectFatoOperacional = document.querySelector(
     `#divSelectConta${data.data[0]["tipoconta"]}Disponibilidades select`
@@ -145,10 +140,6 @@ function setDadosFormularioModal(data) {
   const textArea = document.querySelector(".historico");
   textArea.value = data.data[0]["detalhedoc"];
 
-  const inputEvento = document.querySelector(".evento");
-  inputEvento.value = data.data[0]["evento"];
-
-  inputDataBalancete.value = data.data[0]["databal"];
   inputValorComDecimal.value = data.data[0]["valorpago"].replace("R$ ", "");
 
   const selectTipoLancamento = document.querySelector(
@@ -162,4 +153,74 @@ function setDadosFormularioModal(data) {
   inputUnidade.value = data.data[0]["destinodoc"];
 }
 
-//console.log(sendGet("/app/disponibilidades/tableservice.php?nuOrdem=1292"));
+/****Cadastrar dados do registro na modal */
+let btnCadRegistro = document.querySelector("button.btnCad");
+if (btnCadRegistro) {
+  btnCadRegistro.addEventListener("click", async (e) => {
+    e.preventDefault();
+    document.querySelector(".numerodoc").value = 1 + ano + 9999;
+    const form = document.querySelector("#formDocsDisponibilidades");
+    const returnInsert = await sendPost(
+      `http://sufin.caixa/api-sufin/informacoes-operacionais/disponibilidades`,
+      formToJSONString(form) //script formataCampos
+    ); //script geral/fetch
+
+    showMessage(returnInsert);
+  });
+}
+
+/****Alterar dados do registro na modal */
+let btnAlterarRegistro = document.querySelector("button.btnAlt");
+if (btnAlterarRegistro) {
+  btnAlterarRegistro.addEventListener("click", async (e) => {
+    e.preventDefault();
+    inserirSpinnerEmBotaoByClass('btnAlt');
+    btnAlterarRegistro.disabled = true;
+    const form = document.querySelector("#formDocsDisponibilidades");
+    const nuOrdem = document.querySelector(".ordem").value;
+    const returnUpdate = await sendPost(
+      `http://sufin.caixa/api-sufin/informacoes-operacionais/disponibilidades/${nuOrdem}`,
+      formToJSONString(form) //script formataCampos
+    ); //script geral/fetch
+
+    showMessage(returnUpdate);
+    btnAlterarRegistro.disabled = false;
+    removerSpinnerEmBotaoByClass('btnAlt');
+  });
+}
+
+/**** deletar registro na modal */
+let btnExcluirRegistro = document.querySelector("button.btnExc");
+if (btnExcluirRegistro) {
+  btnExcluirRegistro.addEventListener("click", async (e) => {
+    e.preventDefault();
+    inserirSpinnerEmBotaoByClass('btnExc');
+    const nuOrdem = document.querySelector(".ordem").value;
+    const returnDelete = await sendPost(
+      `http://sufin.caixa/api-sufin/informacoes-operacionais/disponibilidades/${nuOrdem}/delete`
+    ); //script geral/fetch
+
+    showMessage(returnDelete);
+    removerSpinnerEmBotaoByClass('btnExc');
+  });
+}
+
+//mensagem é um objeto de retorno da requisição
+function showMessage(
+  mensagem,
+  tipoRetorno = "success",
+  titulo = "Retorno da ação"
+) {
+  if (!mensagem.messages.success) {
+    tipoRetorno = "error";
+    titulo = "Erro da validação do registro";
+    mensagem = mensagem.messages.error;
+  } else {
+    mensagem = mensagem.messages.success;
+    let btnClose = document.querySelector("button.btn-fechar");
+    btnClose.click();
+    montarTabela("/app/disponibilidades/tableservice.php?datafiltro=" + filtroData);
+  }
+
+  showStackBarTop(tipoRetorno, titulo, mensagem, true); //script /app/assets/js/pnotify/PnotifyViewAlertMessage.js
+}

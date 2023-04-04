@@ -1,0 +1,5 @@
+GET http://sufin.caixa/api-sufin/informacoes-operacionais/disponibilidades HTTP/1.1
+content-type: application/json
+Authorization: NTLM
+
+

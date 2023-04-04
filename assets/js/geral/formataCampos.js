@@ -21,7 +21,7 @@ function addDays(date, days) {
   return result;
 }
 
-function formatNumberWithDecimal(v) {
+function _formatNumberWithDecimal(v) {
   v = v.replace(/\D/g, "");
   v = new String(Number(v));
   var len = v.length;
@@ -36,6 +36,55 @@ function formatNumberWithDecimal(v) {
     }
   }
   return v;
+}
+
+
+function formatarMoeda(valor) {
+  // divide por 100 para transformar em decimal
+  var valorDecimal = valor / 100;
+
+  // converte para string com duas casas decimais
+  var valorString = valorDecimal.toFixed(2);
+
+  // adiciona separador de milhar
+  var partes = valorString.split(".");
+  var inteiro = partes[0];
+  var decimal = parseInt(partes[1]);
+
+  inteiro = inteiro.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  
+
+  // retorna o valor formatado
+  return  "R$ " + inteiro + "," + decimal;
+}
+
+function formatNumberWithDecimal(valor) {
+
+  /*// remove tudo que não for número
+  valor = valor.replace(/\D/g, "");
+
+  // formata o valor
+  var valorFormatado = formatarMoeda(valor);
+
+  // atualiza o valor do input
+  return valorFormatado;*/
+
+  var tamanhoValorInicial = valor.length;
+
+  var valor = valor.replace(/\D/g,'');
+  valor = (valor/100).toFixed(2) + '';
+  valor = valor.replace(".", ",");
+  valor = valor.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+
+  //gambi para contornar o erro que coloca 3 casas decimais
+  if(tamanhoValorInicial === 0) {
+    console.log(valor);
+    console.log(valor.substring(1));
+    formatNumberWithDecimal(valor.substring(3));
+  }
+
+
+  return valor
 }
 
 function formatNumberInt(number, digits) {
@@ -88,4 +137,20 @@ function dateInputMask(elm) {
       elm.value.slice(0, 10);
     }
   });
+}
+
+function formToJSONString( form ) {
+  var obj = {};
+  var elements = form.querySelectorAll( "input, select, textarea" );
+  for( var i = 0; i < elements.length; ++i ) {
+    var element = elements[i];
+    var name = element.name;
+    var value = element.value;
+
+    if( name ) {
+      obj[ name ] = value;
+    }
+  }
+
+  return JSON.stringify( obj );
 }

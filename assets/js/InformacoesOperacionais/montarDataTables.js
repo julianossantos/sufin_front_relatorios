@@ -2,14 +2,14 @@
  * o campo de colunas deve ser um array de objetos
  * Ex: [{ data: "ordem" }, { data: "fato_operacional", width: "50px" },{ data: "detalhedoc" }],
  */
-function montarTabelaDataTable(idTabela, url, colunas) {
-  if ($.fn.DataTable.isDataTable(idTabela)) {
+async function montarTabelaDataTables(idTabela, url, colunas) {
+  if ($.fn.DataTable.isDataTable("#" + idTabela)) {
     $("#" + idTabela)
       .DataTable()
       .destroy();
   }
 
-  var table = $("#" + idTabela).DataTable({
+  $("#" + idTabela).DataTable({
     dom: "lrftip",
     destroy: true,
     autoWidth: false,
