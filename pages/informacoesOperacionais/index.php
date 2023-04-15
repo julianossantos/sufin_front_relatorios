@@ -25,22 +25,22 @@
     <hr />
     <ul class="nav nav-pills" id="informacoes-operacionais-pills">
         <li class="nav-item">
-            <button class="nav-link active" id="contas-a-pagar-tab" data-bs-toggle="pill" data-bs-target="#contas-a-pagar" type="button" role="tab" aria-controls="contas-a-pagar-tab" aria-selected="true" value="contaspg/index2.php"><i class="mdi mdi-credit-card"></i> Contas a Pagas</button>
+            <button class="nav-link active" id="contas-a-pagar-tab" data-bs-toggle="pill" data-bs-target="#contas-a-pagar" type="button" role="tab" aria-controls="contas-a-pagar-tab" aria-selected="true" value="contaspg/index2.php"><i class="mdi mdi-wallet"></i> Contas a Pagar</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="contas-a-receber-tab" data-bs-toggle="pill" data-bs-target="#contas-a-receber" type="button" role="tab" aria-controls="contas-a-receber-tab" aria-selected="false" value="vlrs_rec/index2.php"><i class="mdi mdi-cards-outline"></i> Contas a Receber</button>
+            <button class="nav-link" id="contas-a-receber-tab" data-bs-toggle="pill" data-bs-target="#contas-a-receber" type="button" role="tab" aria-controls="contas-a-receber-tab" aria-selected="false" value="vlrs_rec/index2.php"><i class="mdi mdi-cash-multiple"></i> Contas a Receber</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="disponibilidades-tab" data-bs-toggle="pill" data-bs-target="#disponibilidades" type="button" role="tab" aria-controls="disponibilidade-tab" aria-selected="false" value="disponibilidades/index2.php"><i class="mdi mdi-trophy-outline"></i> Disponibilidades</button>
+            <button class="nav-link" id="disponibilidades-tab" data-bs-toggle="pill" data-bs-target="#disponibilidades" type="button" role="tab" aria-controls="disponibilidade-tab" aria-selected="false" value="disponibilidades/index2.php"><i class="mdi mdi-cash-register menu-icon"></i> Disponibilidades</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="fatos-operacionais-tab" data-bs-toggle="pill" data-bs-target="#fatos-operacionais" type="button" role="tab" aria-controls="fatos-operacionais-tab" aria-selected="false"><i class="mdi mdi-trophy-outline"></i> Fatos Operacionais</button>
+            <button class="nav-link" id="fatos-operacionais-tab" data-bs-toggle="pill" data-bs-target="#fatos-operacionais" type="button" role="tab" aria-controls="fatos-operacionais-tab" aria-selected="false" value="relatorios/pages/InformacoesOperacionais/Fatos/index.php"><i class="mdi mdi-numeric"></i> Fatos Operacionais</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="paticipacoes-societarias-tab" data-bs-toggle="pill" data-bs-target="#paticipacoes-societarias" type="button" role="tab" aria-controls="paticipacoes-societarias-tab" aria-selected="false"><i class="mdi mdi-trophy-outline"></i> Paticicipações</button>
+            <button class="nav-link" id="paticipacoes-societarias-tab" data-bs-toggle="pill" data-bs-target="#paticipacoes-societarias" type="button" role="tab" aria-controls="paticipacoes-societarias-tab" aria-selected="false"><i class="fa fa-building" aria-hidden="true"></i> Paticicipações</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id="outros-tributos-tab" data-bs-toggle="pill" data-bs-target="#outros-tributos" type="button" role="tab" aria-controls="outros-tributos-tab" aria-selected="false"><i class="mdi mdi-trophy-outline"></i> Outros Tributos</button>
+            <button class="nav-link" id="outros-tributos-tab" data-bs-toggle="pill" data-bs-target="#outros-tributos" type="button" role="tab" aria-controls="outros-tributos-tab" aria-selected="false" value="relatorios/pages/InformacoesOperacionais/tributos/index.php"><i class="mdi mdi-minus-box"></i> Outros Tributos</button>
         </li>
     </ul>
     <div class="tab-content" id="informacoes-operacionais-tabPillsContent">

@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-4 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Faturamento Acumulado 2023</h3>
+                <div id="adquirencia-faturamento-acumulado-ano" class="text-primary h3 text-center"> R$ 0 BI</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Credenciamento Acumulado 2023</h5>
+                <div id="adquirencia-credenciamento-acumulado-ano" class="text-primary h3 text-center"> 0</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-center">Maquinas Ativadas Acumulado 2023 </h5>
+                <div id="adquirencia-maquinas-ativadas-acumulado-ano" class="text-primary h3 text-center"> 0 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Faturamento Mensal</h5>
+                <div id="adquirencia-faturamento-mensal"></div>
+                <div id="spinner-faturamento-adquirencia" class="text-center">
+                    <div class="spinner-border text-primary">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Credenciamentos Contratados Mensal</h5>
+                <div id="adquirencia-credenciamento-mensal"></div>
+                <div id="spinner-credenciamento-adquirencia" class="text-center">
+                    <div class="spinner-border text-primary">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Máquinas Ativas Mensal</h5>
+                <div id="adquirencia-maquinas-ativas-mensal"></div>
+                <div id="spinner-maquinas-ativas-adquirencia" class="text-center">
+                    <div class="spinner-border text-primary">
+                        <span class="sr-only"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script language="Javascript1.9" src="/app/relatorios/assets/js/home/charts_home_adquirencia.js"></script>
+<script type="text/javascript">
+    chartFaturamentoAdquirenciaMensal();
+    chartCredenciamentoAdquirenciaMensal();
+    chartMaquinaAdquirenciaMensal();
+</script>
